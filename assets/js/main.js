@@ -385,6 +385,46 @@
 
 			}
 
+    // Contact Form
+      $window.ready(() => {
+        emailjs.init("user_IyhKBCwNmwjzbr74BXJyi");
+        let form = document.getElementById("contact-form");
+        form.addEventListener('submit', (e) => {
+          e.preventDefault()
+          let errors = []
+          let params = {
+            name: document.querySelector("#input-name").value,
+            email: document.querySelector("#input-email").value,
+            message: document.querySelector("#input-message").value
+          };
+          for (key in params){
+            if (!params[key]){
+              errors.push(key)
+            }
+          }
+          if (errors.length > 0){
+            let errorDisplay = document.getElementById("contact-form-errors")
+            errorDisplay.innerText = errors.join(", ") + " can't be blank.";
+            setTimeout(() => errorDisplay.innerText = "", 4000)
+          } else {
+            emailjs.send("", "portfolio_contact_form", params)
+            .then(() => {
+              document.getElementById("contact-form").reset();
+              document.getElementById("contact-submit").value = "Sent!";
+              document
+                .getElementById("contact-submit")
+                .setAttribute("disabled", "true");
+            }, 
+            () =>{
+              let submit = document.getElementById("contact-submit")
+              submit.setAttribute("disabled", "true");
+              submit.value = "Failed to send";
+              setTimeout(() => (submit.value = "Send Message"), 2000);
+              setTimeout(() => (submit.removeAttribute("disabled")), 2000);
+            })
+          }
+        })
+      })
 		// Initialize.
 
 			// Hide main, articles.

@@ -9,7 +9,11 @@
     <meta name="description" content="Stephane Meyering - Portfolio" />
 	  <meta name="author" content=" Stephane Meyering" />
 	  <meta name="keywords" content="Stephane Meyering, Stephane, Steph, Meyering, stephmeyering.com, www.stephmeyering.com, Steph Meyering, portfolio, software engineer, san francisco, bay area,
-		React, web developer, engineering, personal website, projects, full stack, frontend, backend, resume" />
+    React, web developer, engineering, personal website, projects, full stack, frontend, backend, resume" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
     <title>Steph Meyering</title>
     <meta charset="utf-8" />
     <meta
@@ -260,29 +264,30 @@
         <!-- Contact -->
         <article id="contact">
           <h2 class="major">Contact</h2>
-          <form method="post" action="#">
+          <form id="contact-form" method="post" action="mailto:stephane.meyering@gmail.com">
             <div class="fields">
               <div class="field half">
                 <label for="name">Name</label>
-                <input type="text" name="name" id="name" />
+                <input type="text" name="name" id="input-name" />
               </div>
               <div class="field half">
                 <label for="email">Email</label>
-                <input type="text" name="email" id="email" />
+                <input type="text" name="email" id="input-email" />
               </div>
               <div class="field">
                 <label for="message">Message</label>
-                <textarea name="message" id="message" rows="4"></textarea>
+                <textarea name="message" id="input-message" rows="4"></textarea>
               </div>
             </div>
             <ul class="actions">
               <li>
-                <input type="submit" value="Send Message" class="primary" />
+                <input id="contact-submit" type="submit" value="Send Message" class="primary" />
               </li>
               <li><input type="reset" value="Reset" /></li>
+              <li id="contact-form-errors"></li>
             </ul>
           </form>
-          <ul class="icons">
+          <!-- <ul class="icons">
             <li>
               <a href="#" class="icon brands fa-twitter"
                 ><span class="label">Twitter</span></a
@@ -303,7 +308,7 @@
                 ><span class="label">GitHub</span></a
               >
             </li>
-          </ul>
+          </ul> -->
         </article>
 
         <!-- Elements -->
@@ -667,5 +672,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
   </body>
 </html>
