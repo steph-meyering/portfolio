@@ -659,7 +659,15 @@ input, select, textarea {
 
 		.icon.brands:before {
 			font-family: 'Font Awesome 5 Brands';
-		}
+    }
+    
+    .space-after-pin {
+      padding-right: 12px;
+    }
+
+    .space-after-pdf {
+      padding-right: 8px;
+    }
 
 /* Image */
 
