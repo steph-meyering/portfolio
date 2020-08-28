@@ -407,6 +407,7 @@
             errorDisplay.innerText = errors.join(", ") + " can't be blank.";
             setTimeout(() => errorDisplay.innerText = "", 4000)
           } else {
+            document.getElementById("contact-submit").value = "Sending";
             emailjs.send("gmail", "portfolio_contact_form", params)
             .then(() => {
               document.getElementById("contact-form").reset();
