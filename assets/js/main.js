@@ -389,8 +389,20 @@
       $window.ready(() => {
         emailjs.init("user_IyhKBCwNmwjzbr74BXJyi");
         let form = document.getElementById("contact-form");
+        let formLoadedAt = Date.now();
         form.addEventListener('submit', (e) => {
           e.preventDefault()
+          // Bot checks: hidden honeypot field filled, or submitted
+          // impossibly fast after page load. Fake success so bots move on.
+          let honeypot = document.querySelector("#input-website").value;
+          if (honeypot || Date.now() - formLoadedAt < 3000) {
+            document.getElementById("contact-form").reset();
+            document.getElementById("contact-submit").value = "Sent!";
+            document
+              .getElementById("contact-submit")
+              .setAttribute("disabled", "true");
+            return;
+          }
           let errors = []
           let params = {
             name: document.querySelector("#input-name").value,
