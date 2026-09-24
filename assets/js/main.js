@@ -409,7 +409,7 @@
             email: document.querySelector("#input-email").value,
             message: document.querySelector("#input-message").value
           };
-          for (key in params){
+          for (const key in params){
             if (!params[key]){
               errors.push(key)
             }

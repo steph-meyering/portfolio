@@ -89,6 +89,10 @@
 				letter-spacing: _font(letter-spacing);
 				font-size: 0.8rem;
 				line-height: 2;
+
+				&:not(:last-child) {
+					margin-bottom: 0;
+				}
 			}
 		}
 
